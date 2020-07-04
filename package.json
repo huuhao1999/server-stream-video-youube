@@ -1,0 +1,24 @@
+{
+  "name": "itpfresher_tour",
+  "version": "1.0.0",
+  "description": "thu thập thông tin video",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "hao",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7",
+    "pm2": "^4.4.0",
+    "vows": "^0.8.3",
+    "youtube-channel-videos": "^1.0.0",
+    "youtube-dl": "^3.0.2",
+    "ytpl": "^0.1.22"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "mysql": {
+    "connectionLimit": 50,
+    "host": "huuhao.me",
+    "port": 3306,
+    "user": "hao",
+    "password": "123456789",
+    "database": "video1"
+  },
+  "paginate": {
+    "limit": 6
+  },
+  "permission": {
+    "admin": 1,
+    "buyer": 0
+  },
+  "apikeyyoutube": "AIzaSyBFPo3Mi6EcBMO9QS4-FY7HPVJzzAoC_vM",
+  "idplaylistcorona": "PLj3pJAo3YzrNyCz3Q787YoPt2956D8jp9",
+  "idchannel": "UCIW9cGgoRuGJnky3K3tbzNg",
+  "arrayskey": [
+    "AIzaSyAwsmElklaB2K4oNUk60Kgg9HpCFXw5dTc",
+    "AIzaSyCKrOBjKY28PgazXFZ1yPtl7WTzPez9A5w",
+    "AIzaSyDwESzxvVjmGZCEJACMPDeW4vHHNKsD2bY",
+    "AIzaSyArkrWB9WcrEq2AfGYB4aP5c0e2ViXuS60",
+    "AIzaSyDDbOyFcu2k_e81pGdVCWGH6BZNwObWpbY",
+    "AIzaSyAXUiVz6nr3DDllYsSklTpC8x9u08aPgOg",
+    "AIzaSyAJCpu4dBH0DGfDjAPZ_cEQLX0Q63AXgKE"
+  ],
+  "idchannelnews": [
+    "UC47WI-kZXFf0H_f7pvaNCEQ",
+    "UCIW9cGgoRuGJnky3K3tbzNg",
+    "UCL9-pEHNBs3N4r2bMoXdLJA",
+    "UCabsTV34JwALXKGMqHpvUiA",
+    "UC7723FqVehXq2zeRb3tP0hQ",
+    "UCUmRGR3a-g13O6pG927KQmg"
+  ],
+  "//": "1:Tuổi trẻ, 2: thanh niên, 3:vtv now, 4:vtv24, 5:FBNC, 6 tin tức online 4h"
+}
