@@ -25,34 +25,36 @@ module.exports = {
         let promise = new Promise(async (resolve, reject) => {
             var flatcheck = true;
             var keyapi = 0;
-            while (flatcheck) {
-              //  console.log(config.arrayskey.length);
-                var jsondata = await jsonvideolastest.getJsonlastestVideo(idchannel, config.arrayskey[keyapi]);
-                if (jsondata === -1) {
-                    console.log("hết hạn key:",keyapi+1);
-                    keyapi++;
+            //var check chan
+            for (const z in config.idchannelnews) {
+                while (flatcheck) {
+                    //  console.log(config.arrayskey.length);
+                    var jsondata = await jsonvideolastest.getJsonlastestVideo(config.idchannelnews[z], config.arrayskey[keyapi]);
+                    if (jsondata === -1) {
+                        console.log("hết hạn key:", keyapi + 1);
+                        keyapi++;
+                    }
+                    else {
+                        flatcheck = false;
+                        var temp = jsondata.items;
+                        // console.log(temp);
+                        for (const i in temp) {
+                            arrays.push(temp[i].id.videoId);
+                        }
+                    }
+                    if (keyapi === config.arrayskey.length) {
+                        flatcheck = false;
+                        console.log("toàn bộ key hết hạn");
+                    }
                 }
-                else{
-                    flatcheck=false;
-                }
-                if(keyapi===config.arrayskey.length)
-                {
-                    flatcheck=false;
-                    console.log("toàn bộ key hết hạn");
-                }
-
+                flatcheck=true;
             }
-
             //console.log("jsondata",jsondata);
-            resolve(jsondata);
+            resolve(arrays);
         })
-        return promise.then(async (jsondata) => {
+        return promise.then(async (arrays) => {
             // console.log("jsondata",jsondata.items[1].id.videoId);
-            var temp = jsondata.items;
-            // console.log(temp);
-            for (const i in temp) {
-                arrays.push(temp[i].id.videoId);
-            }
+
             //console.log("aray id",arrays);
             return arrays;
         })
