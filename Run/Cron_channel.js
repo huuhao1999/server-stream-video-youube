@@ -1,8 +1,9 @@
-var nodeSchedule = require('node-schedule');
-function runJob() {
-    console.log("start...");
-    nodeSchedule.scheduleJob('*/1 * * * * *', function () { 
-        require('./Run_channel');
-    });
-}
-runJob();
+const { spawn } = require('child_process');
+const schedule = require('node-schedule');
+
+schedule.scheduleJob('*/3 * * * *', function() {
+    console.log("running....")
+  spawn('node', ['Run_channel.js']),function(err, stdout, stderr) { 
+    console.log(stdout); 
+  }
+});

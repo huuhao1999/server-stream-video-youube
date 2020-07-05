@@ -1,6 +1,7 @@
 var ypi = require('youtube-channel-videos');
 const config = require("../config/default.json");
 var jsonvideolastest = require('./getVideoLastestInChannel');
+var mail=require("./sendmail");
 const { resolve } = require('path');
 module.exports = {
     getinVideoOfChannel: async (idchannel) => {
@@ -24,10 +25,11 @@ module.exports = {
         var arrays = [];
         let promise = new Promise(async (resolve, reject) => {
             var flatcheck = true;
+            var flatchek1=true;
             var keyapi = 0;
             //var check chan
             for (const z in config.idchannelnews) {
-                while (flatcheck) {
+                while (flatcheck&&flatchek1) {
                     //  console.log(config.arrayskey.length);
                     var jsondata = await jsonvideolastest.getJsonlastestVideo(config.idchannelnews[z], config.arrayskey[keyapi]);
                     if (jsondata === -1) {
@@ -44,10 +46,13 @@ module.exports = {
                     }
                     if (keyapi === config.arrayskey.length) {
                         flatcheck = false;
-                        console.log("toàn bộ key hết hạn");
+                        flatchek1=false;
+                        console.log("toàn bộ key hết hạn và đã gửi mail");
+                        mail.sendEmailwithContent('huuhao1999@gmail.com');
                     }
                 }
                 flatcheck=true;
+                if(!flatchek1) break;
             }
             //console.log("jsondata",jsondata);
             resolve(arrays);

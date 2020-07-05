@@ -21,7 +21,7 @@ module.exports = {
                 console.log('filename: ' + info._filename.replace("-" + id, ""));
                 // console.log(info);
                 // console.log(Number(info.upload_date));
-                if (info.size < 40925141) {
+                if (info.size < 50925141) {
                     entity.videosname = info._filename.replace("-" + id, "");
                     var today = new Date();
                     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
