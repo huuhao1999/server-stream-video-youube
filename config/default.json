@@ -1,9 +1,9 @@
 {
   "mysql": {
     "connectionLimit": 50,
-    "host": "huuhao.me",
+    "host": "localhost",
     "port": 3306,
-    "user": "hao",
+    "user": "root",
     "password": "123456789",
     "database": "video1"
   },
