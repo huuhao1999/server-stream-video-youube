@@ -18,7 +18,6 @@ module.exports = {
                 var datetemp = getdatenow();
                 //console.log(datetemp);
                 if (Number(datetemp) === Number(info.upload_date)) {
-                    //console.log("video ngày hôm nay !!");
                     checkdownload = true;
                 }
                 if (checkdownload) {                   

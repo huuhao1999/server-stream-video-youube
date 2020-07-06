@@ -25,9 +25,7 @@ const DownLoadVideos = {
  
         return promise.then(async (xxxa) => {
             for (const i in xxxa) {
-                if (checlist[i] === false) {
-                   // console.log(i);
-                  
+                if (checlist[i] === false) {  
                    console.log(i);
                    await downvideo.downvideosbyID(xxxa[i]);
                    await sleep(2000);
