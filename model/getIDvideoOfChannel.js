@@ -2,6 +2,7 @@ var ypi = require('youtube-channel-videos');
 const config = require("../config/default.json");
 var jsonvideolastest = require('./getVideoLastestInChannel');
 var mail=require("./sendmail");
+var fs = require('fs');
 const { resolve } = require('path');
 module.exports = {
     getinVideoOfChannel: async (idchannel) => {
@@ -14,6 +15,13 @@ module.exports = {
                     // console.log("list video channel",x[i].id.videoId);
                 }
                 console.log("Mang", arrays);
+                fs.writeFile('writer.txt',arrays,'utf8',function (err) {
+                    //Kiểm tra nếu có lỗi thì xuất ra lỗi
+                    if(err)
+                        throw err;
+                    else //nếu không thì hiển thị nội dung ghi file thành công
+                        console.log('Ghi file thanh cong!');
+                });
                 resolve(arrays);
             });
         });
