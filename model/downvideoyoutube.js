@@ -10,18 +10,24 @@ module.exports = {
         var idInDb;
         const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
             ['--format=18'],
-
             { cwd: __dirname })
-
         try {
-
             video.on('info', function async(info) {
-                //  console.log("infoooo",info);
-                console.log('Download started:');
-                console.log('filename: ' + info._filename.replace("-" + id, ""));
-                // console.log(info);
-                // console.log(Number(info.upload_date));
-                if (info.size < 50925141) {
+                var checkdownload = true;
+                if (info.size > 50925141) { checkdownload = false }
+                var datetemp = getdatenow();
+                //console.log(datetemp);
+                if (Number(datetemp) === Number(info.upload_date)) {
+                    //console.log("video ngày hôm nay !!");
+                    checkdownload = true;
+                }
+                if (checkdownload) {                   
+                    console.log('Download started:');
+                    console.log('filename: ' + info._filename.replace("-" + id, ""));
+                    console.log("size: ",info.size);
+                    //console.log(info.upload_date);
+                    console.log("------------------------------------------------");
+                    // console.log(Number(info.upload_date));
                     entity.videosname = info._filename.replace("-" + id, "");
                     var today = new Date();
                     var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -40,7 +46,7 @@ module.exports = {
                     return promise.then(async (idInDb) => {
                         await video.pipe(fs.createWriteStream('./video/' + idInDb + '.mp4'));
                         console.log('tải xong!');
-                        //sleep(3000);
+                        sleep(500);
                         return true;
                     });
                 } else {
@@ -59,8 +65,21 @@ module.exports = {
 }
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
-}
 
+}
+function getdatenow() {
+    var today = new Date();
+    var datetemp;
+    if (Number(today.getMonth()) >= 10 && Number(today.getDate()) >= 10)
+        datetemp = today.getFullYear() + (today.getMonth() + 1) + today.getDate();
+    if (Number(today.getMonth()) < 10 && Number(today.getDate()) > 10)
+        datetemp = today.getFullYear() + '0' + (today.getMonth() + 1) + today.getDate();
+    if (Number(today.getMonth()) >= 10 && Number(today.getDate()) < 10)
+        datetemp = today.getFullYear() + (today.getMonth() + 1) + '0' + today.getDate();
+    if (Number(today.getMonth()) < 10 && Number(today.getDate()) < 10)
+        datetemp = today.getFullYear() + '0' + (today.getMonth() + 1) + '0' + today.getDate();
+    return datetemp;
+}
 
 
 
