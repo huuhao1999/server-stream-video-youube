@@ -2,6 +2,6 @@
 const DownLoadVideos = require('./download-video_Allchannel');
 
 
-(async() => {
+(async () => {
     await DownLoadVideos.executechannel();
 })()

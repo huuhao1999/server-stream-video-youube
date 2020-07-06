@@ -2,6 +2,6 @@
 const DownLoadVideos = require('./download-video_playlist');
 
 
-(async() => {
+(async () => {
     await DownLoadVideos.executeplaylist();
 })()

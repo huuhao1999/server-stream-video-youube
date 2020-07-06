@@ -20,7 +20,6 @@
     "nodemailer": "^6.4.10",
     "path": "^0.12.7",
     "youtube-channel-videos": "^1.0.0",
-    "youtube-dl": "^3.0.2",
-    "ytpl": "^0.1.22"
+    "youtube-dl": "^3.0.2"
   }
 }
