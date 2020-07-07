@@ -4,7 +4,7 @@ const videosadd = require('./videos');
 const { resolve } = require('path');
 const { isNull } = require('util');
 module.exports = {
-    downvideosbyID: async id => {
+    downvideosbyID: async (id,check)=> {
         var entity = {};
         entity.idvideo = id;
         var idInDb;
@@ -18,8 +18,10 @@ module.exports = {
                 var datetemp = getdatenow();
                 //console.log(datetemp);
                 if (Number(datetemp) === Number(info.upload_date)) {
+                    //console.log("video ngày hôm nay !!");
                     checkdownload = true;
                 }
+                if(check===true) checkdownload=true;
                 if (checkdownload) {                   
                     console.log('Download started:');
                     console.log('filename: ' + info._filename.replace("-" + id, ""));
@@ -33,6 +35,7 @@ module.exports = {
                     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                     var dateTime = date + ' ' + time;
                     entity.datevideo = dateTime;
+                    console.log(info);
                     entity.dateexport = Number(info.upload_date);
                     entity.like = 0;
                     entity.views = 0;
@@ -64,10 +67,12 @@ module.exports = {
 }
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
+
 }
 function getdatenow() {
     var today = new Date();
-    var datetemp;
+   var datetemp;
+    //console.log("date",today.getDate());
     if (Number(today.getMonth()) >= 10 && Number(today.getDate()) >= 10)
         datetemp = today.getFullYear() + (today.getMonth() + 1) + today.getDate();
     if (Number(today.getMonth()) < 10 && Number(today.getDate()) > 10)
@@ -76,6 +81,7 @@ function getdatenow() {
         datetemp = today.getFullYear() + (today.getMonth() + 1) + '0' + today.getDate();
     if (Number(today.getMonth()) < 10 && Number(today.getDate()) < 10)
         datetemp = today.getFullYear() + '0' + (today.getMonth() + 1) + '0' + today.getDate();
+        //console.log(datetemp);
     return datetemp;
 }
 
