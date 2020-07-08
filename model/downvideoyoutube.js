@@ -58,6 +58,7 @@ module.exports = {
                     console.log('video quá nặng');
                     return false;
                 }*/
+                console.log("ok");
             }
             )
         } catch (error) {
