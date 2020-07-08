@@ -27,7 +27,12 @@ const DownLoadVideos = {
                 if (checlist[i] === false) {
 
                     console.log(i);
-                    await downvideo.downvideosbyID(xxxa[i],false);
+                    try {
+                        await downvideo.downvideosbyID(xxxa[i],false);
+                    } catch (error) {
+                        
+                    }
+                   
                     await sleep(1500);
                 }
                 if (checlist[i] === true) console.log("video exists nha");

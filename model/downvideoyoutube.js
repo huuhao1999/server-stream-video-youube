@@ -8,9 +8,15 @@ module.exports = {
         var entity = {};
         entity.idvideo = id;
         var idInDb;
-        const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
+        try {
+            const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
             ['--format=18'],
             { cwd: __dirname })
+        } catch (error) {
+            
+        }
+       
+
             video.on('info', function async(info) {
                 var checkdownload = true;
                 if (info.size > 50925141) { checkdownload = false }
@@ -41,11 +47,21 @@ module.exports = {
                     entity.idchannel = info.channel_id;
                     let promise = new Promise(async (resolve, reject) => {
                         //console.log(entity);   
-                        idInDb = await videosadd.addvideo(entity);
+                        try {
+                            idInDb = await videosadd.addvideo(entity);
+                        } catch (error) {
+                            
+                        }
+                     
                         resolve(idInDb);
                     })
                     return promise.then(async (idInDb) => {
-                        await video.pipe(fs.createWriteStream('./video/' + idInDb + '.mp4'));
+                        try {
+                            await video.pipe(fs.createWriteStream('./video/' + idInDb + '.mp4'));
+                        } catch (error) {
+                            
+                        }
+                       
                         console.log('tải xong!');
                         sleep(500);
                         return true;

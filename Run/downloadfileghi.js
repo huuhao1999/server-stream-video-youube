@@ -30,7 +30,12 @@ const DownLoadVideos = {
                    // console.log(i);
                   
                    console.log(i);
-                let as=await downvideo.downvideosbyID(xxxa[i],true);
+                   try {
+                    let as=await downvideo.downvideosbyID(xxxa[i],true);
+                   } catch (error) {
+                       
+                   }
+               
                 //console.log(as);
                    await sleep(10000);
                 }
