@@ -12,7 +12,7 @@ module.exports = {
         const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
             ['--format=18'],
             { cwd: __dirname })
-        try {
+     
             video.on('info', function async(info) {
                 /*
                 var checkdownload = true;
@@ -61,9 +61,7 @@ module.exports = {
                 console.log("ok");
             }
             )
-        } catch (error) {
-            return false;
-        }
+  
 
     }
 
