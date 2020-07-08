@@ -1,11 +1,11 @@
 {
   "mysql": {
     "connectionLimit": 50,
-    "host": "localhost",
+    "host": "18.188.209.188",
     "port": 3306,
-    "user": "root",
+    "user": "huuhao",
     "password": "123456789",
-    "database": "video1"
+    "database": "video"
   },
   "paginate": {
     "limit": 6
