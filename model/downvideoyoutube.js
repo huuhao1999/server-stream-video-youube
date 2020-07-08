@@ -12,9 +12,9 @@ module.exports = {
         const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
             ['--format=18'],
             { cwd: __dirname })
-     
-            await video.on('info', function async(info) {
-                /*
+            setTimeout(function(){
+                   video.on('info', function async(info) {
+                
                 var checkdownload = true;
                 if (info.size > 50925141) { checkdownload = false }
                 var datetemp = getdatenow();
@@ -57,7 +57,8 @@ module.exports = {
                     //sleep(3000);
                     console.log('video quá nặng');
                     return false;
-                }*/
+                }
+            }, 10000);
                 console.log("ok");
             }
             )
