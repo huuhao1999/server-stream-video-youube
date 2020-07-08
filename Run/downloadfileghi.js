@@ -1,6 +1,6 @@
 
 var downvideo = require('../model/downvideoyoutube');
-var downvideo = require('../model/downvideoyoutube');
+//var downvideo = require('../model/downvideoyoutube');
 var inforOfaChannel = require('../model/getIDvideoOfChannel');
 var checkeiststsvideo = require('../controller/videos.ctl');
 const config = require("../config/default.json");
@@ -30,12 +30,7 @@ const DownLoadVideos = {
                    // console.log(i);
                   
                    console.log(i);
-                   try {
-                    let as=await downvideo.downvideosbyID(xxxa[i],true);
-                   } catch (error) {
-                       
-                   }
-               
+                let as=await downvideo.downvideosbyID(xxxa[i],true);
                 //console.log(as);
                    await sleep(10000);
                 }
