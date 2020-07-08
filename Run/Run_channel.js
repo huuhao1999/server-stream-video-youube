@@ -5,7 +5,14 @@ process.env.UV_THREADPOOL_SIZE = 128;
 
 
 (async () => {
-    await DownLoadVideos.executechannel();
+    try {
+        await DownLoadVideos.executechannel();
+    } catch (error) {
+        console.error(error)
+        process.exit(1)
+    }
+    
+  
     //await sleep(3600000);
 })()
 function sleep(time) {

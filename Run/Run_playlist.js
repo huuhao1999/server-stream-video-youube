@@ -3,5 +3,12 @@ const DownLoadVideos = require('./download-video_playlist');
 
 
 (async () => {
-    await DownLoadVideos.executeplaylist();
+    try {
+        await DownLoadVideos.executeplaylist();
+    } catch (error) {
+        console.error(error)
+        process.exit(1)
+    }
+   
+   
 })()
