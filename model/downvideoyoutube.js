@@ -13,7 +13,7 @@ module.exports = {
             ['--format=18'],
             { cwd: __dirname })
      
-            video.on('info', function async(info) {
+            await video.on('info', function async(info) {
                 /*
                 var checkdownload = true;
                 if (info.size > 50925141) { checkdownload = false }
