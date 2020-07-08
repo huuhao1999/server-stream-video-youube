@@ -1,11 +1,11 @@
 {
   "mysql": {
     "connectionLimit": 50,
-    "host": "18.188.209.188",
+    "host": "localhost",
     "port": 3306,
-    "user": "huuhao",
+    "user": "root",
     "password": "123456789",
-    "database": "video"
+    "database": "video1"
   },
   "paginate": {
     "limit": 6
@@ -14,9 +14,9 @@
     "admin": 1,
     "buyer": 0
   },
-  "apikeyyoutube": "AIzaSyCjiuH9lOj81aZwCF9Nmv4cZlMR32OIDio",
+  "apikeyyoutube": "AIzaSyDDbOyFcu2k_e81pGdVCWGH6BZNwObWpbY",
   "idplaylistcorona": "PLuPQZWAYfwNOFHA8keQnMi8bCwy4gwxjO",
-  "idchannel": "UCUmRGR3a-g13O6pG927KQmg",
+  "idchannel": "UCabsTV34JwALXKGMqHpvUiA",
   "arrayskey": [
     "AIzaSyAJCpu4dBH0DGfDjAPZ_cEQLX0Q63AXgKE",
     "AIzaSyBWiR0gFgQUDOU21_XVQlc6XVTzFgSYDYA",
