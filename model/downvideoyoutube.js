@@ -35,7 +35,7 @@ module.exports = {
                     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
                     var dateTime = date + ' ' + time;
                     entity.datevideo = dateTime;
-                    console.log(info);
+                   // console.log(info);
                     entity.dateexport = Number(info.upload_date);
                     entity.like = 0;
                     entity.views = 0;
