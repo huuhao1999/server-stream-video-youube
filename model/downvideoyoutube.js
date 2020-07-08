@@ -5,7 +5,7 @@ const { resolve } = require('path');
 const { isNull } = require('util');
 module.exports = {
     downvideosbyID: async (id,check)=> {
-        /*
+        
         var entity = {};
         entity.idvideo = id;
         var idInDb;
@@ -14,6 +14,7 @@ module.exports = {
             { cwd: __dirname })
         try {
             video.on('info', function async(info) {
+                /*
                 var checkdownload = true;
                 if (info.size > 50925141) { checkdownload = false }
                 var datetemp = getdatenow();
@@ -56,13 +57,13 @@ module.exports = {
                     //sleep(3000);
                     console.log('video quá nặng');
                     return false;
-                }
+                }*/
             }
             )
         } catch (error) {
             return false;
-        }*/
-console.log("ok");
+        }
+
     }
 
 }
