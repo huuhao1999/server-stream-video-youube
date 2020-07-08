@@ -11,7 +11,6 @@ module.exports = {
         const video = await youtubedl('https://www.youtube.com/watch?v=' + id,
             ['--format=18'],
             { cwd: __dirname })
-        try {
             video.on('info', function async(info) {
                 var checkdownload = true;
                 if (info.size > 50925141) { checkdownload = false }
@@ -58,9 +57,6 @@ module.exports = {
                 }
             }
             )
-        } catch (error) {
-            return false;
-        }
 
     }
 
