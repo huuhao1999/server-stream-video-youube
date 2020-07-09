@@ -28,20 +28,19 @@ const DownLoadVideos = {
  
         return promise.then(async (xxxa) => {
             var i=0;
-            while (true) {
+            xxxa.forEach(function (xxa, i) {
                 if (checlist[i] === false) {
-                   // console.log(i);
-                  
-                   console.log(i);
+                    // console.log(i);
                    
-                let as=await downvideo.downvideosbyID(xxxa[i]);
-                //console.log(as);
-                   await sleep(20000);
-                }
-                if (checlist[i] === true) console.log("video exists nha");
-                if(i===xxxa.length) break;
-                i++;
-            }
+ 
+                    console.log(i);
+                    
+                 let as=await downvideo.downvideosbyID(xxa);
+                 //console.log(as);
+                    await sleep(20000);
+                 }
+                 if (checlist[i] === true) console.log("video exists nha");
+            }); 
 
             return 1;
         })
