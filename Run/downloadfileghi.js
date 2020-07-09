@@ -4,16 +4,16 @@ var downvideo = require('../model/downvideoyoutube');
 var inforOfaChannel = require('../model/getIDvideoOfChannel');
 var checkeiststsvideo = require('../controller/videos.ctl');
 const config = require("../config/default.json");
-var arrayreadfile=require('./readfile');
-var test1=require('./test');
+var arrayreadfile = require('./readfile');
+var test1 = require('./test');
 const test = require('./test');
 const DownLoadVideos = {
-    executechannel:async function () {
+    executechannel: async function () {
         console.log("EXECUTE channel");
         let xxxa = null;
         var checlist = null
         //for (const k in config.idchannelnews)
-        
+
         let promise = new Promise(async (resolve, reject) => {
             try {
                 //xxxa = await inforOfaChannel.getinVideoOfChannel("édsf");
@@ -25,22 +25,22 @@ const DownLoadVideos = {
             }
             resolve(xxxa);
         })
- 
+
         return promise.then(async (xxxa) => {
-            var i=0;
-            xxxa.forEach(function (xxa, i) {
+            var i = 0;
+            xxxa.forEach(async function (xxa, i) {
                 if (checlist[i] === false) {
                     // console.log(i);
-                   
- 
+
+
                     console.log(i);
-                    
-                 let as=await downvideo.downvideosbyID(xxa);
-                 //console.log(as);
+
+                    let as = await downvideo.downvideosbyID(xxa);
+                    //console.log(as);
                     await sleep(20000);
-                 }
-                 if (checlist[i] === true) console.log("video exists nha");
-            }); 
+                }
+                if (checlist[i] === true) console.log("video exists nha");
+            });
 
             return 1;
         })
