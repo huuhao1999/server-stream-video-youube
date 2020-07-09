@@ -33,7 +33,7 @@ const DownLoadVideos = {
                   
                    console.log(i);
                    
-                let as=await test1.infovideo(xxxa[i]);
+                let as=await downvideo.downvideosbyID(xxxa[i]);
                 //console.log(as);
                    await sleep(10000);
                 }
