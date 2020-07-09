@@ -10,10 +10,13 @@ module.exports = {
             .pipe(fs.createWriteStream("./video1/" + id + '.mp4')));
     },
     infovideo: async (id) => {
-        let info = await ytdl.getInfo(id);
-        let audioFormats = ytdl.filterFormats(info.formats, 'audioonly');
-        console.log('Formats with only audio: ' + audioFormats.length);
-        fs.writeFile('writer.txt', info, 'utf8', function (err) {
+        let info = await ytdl.getURLVideoID('http://www.youtube.com/watch?v=' + id)
+        
+        console.log('Formats with only audio: ' + info);
+        console.log(info.video_id);
+        console.log(info.upload_date);
+      
+        fs.writeFile('writer1.txt', JSON.stringify(info), function (err) {
             //Kiểm tra nếu có lỗi thì xuất ra lỗi
             if (err)
                 throw err;

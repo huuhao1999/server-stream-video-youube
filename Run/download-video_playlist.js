@@ -31,7 +31,7 @@ const DownLoadVideos = {
                         
                     }
                     
-                    await sleep(1500);
+                    await sleep(10000);
                 }
                 if (checlist[i] === true) console.log("video exists nha");
             }

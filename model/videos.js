@@ -28,7 +28,27 @@ module.exports = {
     getdetailByDateNow: async ()=> {
         try {
             var nowdate=getdatenow();
-            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport = '${nowdate-1}') and((videosname like N'%corona%')or(videosname like N'%covid%') )`;
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport > '${nowdate-10}') and((videosname like N'%corona%')or(videosname like N'%covid%') )`;
+            const rows = await db.load(sql);
+            return rows;
+        } catch (error) {
+            console.log("Error Model: Product: all Pro Id", error);
+        }
+    },
+    getvideoThanhNien: async ()=> {
+        try {
+            var nowdate=getdatenow();
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport > '${nowdate-4}') and idchannel='UCIW9cGgoRuGJnky3K3tbzNg'`;
+            const rows = await db.load(sql);
+            return rows;
+        } catch (error) {
+            console.log("Error Model: Product: all Pro Id", error);
+        }
+    },
+    getvideoTuoiTre: async ()=> {
+        try {
+            var nowdate=getdatenow();
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport > '${nowdate-4}') and idchannel='UC47WI-kZXFf0H_f7pvaNCEQ'`;
             const rows = await db.load(sql);
             return rows;
         } catch (error) {

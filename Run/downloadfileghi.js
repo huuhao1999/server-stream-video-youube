@@ -1,10 +1,12 @@
 
 var downvideo = require('../model/downvideoyoutube');
-//var downvideo = require('../model/downvideoyoutube');
+var downvideo = require('../model/downvideoyoutube');
 var inforOfaChannel = require('../model/getIDvideoOfChannel');
 var checkeiststsvideo = require('../controller/videos.ctl');
 const config = require("../config/default.json");
 var arrayreadfile=require('./readfile');
+var test1=require('./test');
+const test = require('./test');
 const DownLoadVideos = {
     executechannel:async function () {
         console.log("EXECUTE channel");
@@ -30,7 +32,8 @@ const DownLoadVideos = {
                    // console.log(i);
                   
                    console.log(i);
-                let as=await downvideo.downvideosbyID(xxxa[i],true);
+                   
+                let as=await test1.infovideo(xxxa[i]);
                 //console.log(as);
                    await sleep(10000);
                 }

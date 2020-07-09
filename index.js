@@ -11,15 +11,6 @@ app.use(function(req, res, next) {
 // require("./middlewares/routes.mdw")(app);
 
 app.use('', require('./routers/home.route'));
-
-
-
-
-
-
-
-
-
 app.listen(PORT, () => {
     console.log(`Server listening at PORT: ${PORT}`);
 });
