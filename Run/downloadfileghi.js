@@ -36,7 +36,7 @@ const DownLoadVideos = {
                    
                 let as=await downvideo.downvideosbyID(xxxa[i]);
                 //console.log(as);
-                   await sleep(30000);
+                   await sleep(20000);
                 }
                 if (checlist[i] === true) console.log("video exists nha");
                 if(i===xxxa.length) break;
