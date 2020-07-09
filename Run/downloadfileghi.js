@@ -27,7 +27,8 @@ const DownLoadVideos = {
         })
  
         return promise.then(async (xxxa) => {
-            for (const i in xxxa) {
+            var i=0;
+            while (true) {
                 if (checlist[i] === false) {
                    // console.log(i);
                   
@@ -38,7 +39,8 @@ const DownLoadVideos = {
                    await sleep(30000);
                 }
                 if (checlist[i] === true) console.log("video exists nha");
-
+                if(i===xxxa.length) break;
+                i++;
             }
 
             return 1;
