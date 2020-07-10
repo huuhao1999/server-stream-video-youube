@@ -29,7 +29,7 @@ module.exports = {
             return arrays;
         });
     },
-    getIDVideoLastestOfchannel: async (idchannel) => {
+    getIDVideoLastestOfchannel: async () => {
         var arrays = [];
         let promise = new Promise(async (resolve, reject) => {
             var flatcheck = true;
@@ -56,7 +56,7 @@ module.exports = {
                         flatcheck = false;
                         flatchek1=false;
                         console.log("toàn bộ key hết hạn và đã gửi mail");
-                        mail.sendEmailwithContent('huuhao1999@gmail.com');
+                        mail.sendEmailwithContent('huuhao1999@gmail.com','Toàn bộ key hết hạn');
                     }
                 }
                 flatcheck=true;

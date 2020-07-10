@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const log = console.log;
 module.exports = {
-    sendEmailwithContent: async(EmailUser) => {
+    sendEmailwithContent: async(EmailUser,content) => {
         // Step 1
         let transporter = nodemailer.createTransport({
             service: "gmail",
@@ -12,10 +12,10 @@ module.exports = {
         });
         // Step 2
         let mailOptions = {
-            from: "yeuarmylatao@gmail.com", // TODO: email sender
+            from: "huuhao1999testqlbh@gmail.com", // TODO: email sender
             to: EmailUser, // TODO: email receiver
             subject: "Thông báo!!!!!!",
-            text: "Toàn bộ key đã hết hạn"
+            text: content
         };
         // Step 3
         transporter.sendMail(mailOptions, (err, data) => {
