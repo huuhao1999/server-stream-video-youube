@@ -14,7 +14,7 @@ module.exports = {
         try {
             video.on('info', function async(info) {
                 var checkdownload = true;
-                if (info.size > 50925141) { checkdownload = false }
+                if (info.size > 100925141) { checkdownload = false }
                 var datetemp = getdatenow();
                 //console.log(datetemp);
                 if (Number(datetemp) === Number(info.upload_date)) {
