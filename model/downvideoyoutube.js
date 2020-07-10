@@ -54,12 +54,12 @@ module.exports = {
                 } else {
                     //sleep(3000);
                     console.log('video quá nặng');
-                    return false;
+                    return true;
                 }
             }
             )
         } catch (error) {
-            return false;
+            
         }
 
     }
