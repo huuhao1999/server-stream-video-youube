@@ -53,7 +53,7 @@ module.exports = {
                     });
                 } else {
                     //sleep(3000);
-                    console.log('video quá nặng');
+                    console.log('video quá nặng:'+id);
                     return true;
                 }
             }
