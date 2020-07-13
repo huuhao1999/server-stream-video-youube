@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
 var downvideo = require('../model/downvideoyoutube');
+var bodyParser = require('body-parser')
 const fs = require('fs')
 var inforOfaChannel = require('../model/getIDvideoOfChannel');
 var checkeiststsvideo = require('../controller/videos.ctl');
 var mvideo=require('../model/videos')
 var controllervideo=require('../controller/videos.ctl');
 var moment = require('moment');
-
+var jsonParser = bodyParser.json();
 router.get("/video/:id", async (req, res) => {
   const idvideo = parseInt(req.params.id);
   //  console.log(await mvideo.getdetailByDateNow());
@@ -39,12 +40,19 @@ router.get("/video/:id", async (req, res) => {
  //controllervideo.play(req,res);
 });
 router.get("/getallvideoalltoday", async (req, res) => {
-    res.send(await mvideo.getdetailByDateNow());
+  var rows=await mvideo.getdetailByDateNow();
+    res.send(rows.reverse());
 });
 router.get("/getvideothanhnien", async (req, res) => {
   res.send(await mvideo.getvideoThanhNien());
 });
 router.get("/getvideotuoitre", async (req, res) => {
   res.send(await mvideo.getvideoTuoiTre());
+});
+router.post("/updatelike",jsonParser, async (req, res) => {
+  var id=req.body.id;
+  var like=req.body.like;
+var upd=await mvideo.updatelike(id,like);
+  console.log(req.body);
 });
 module.exports = router;

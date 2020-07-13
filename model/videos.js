@@ -28,7 +28,7 @@ module.exports = {
     getdetailByDateNow: async ()=> {
         try {
             var nowdate=getdatenow();
-            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport > '${nowdate-10}') and((videosname like N'%corona%')or(videosname like N'%covid%') )`;
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport > '${nowdate-3}') and((videosname like N'%ona%')or(videosname like N'%p=ovid %') )`;
             const rows = await db.load(sql);
             return rows;
         } catch (error) {
@@ -49,6 +49,16 @@ module.exports = {
         try {
             var nowdate=getdatenow();
             const sql = `SELECT * FROM ${tbName} WHERE (dateexport > '${nowdate-4}') and idchannel='UC47WI-kZXFf0H_f7pvaNCEQ'`;
+            const rows = await db.load(sql);
+            return rows;
+        } catch (error) {
+            console.log("Error Model: Product: all Pro Id", error);
+        }
+    },
+    updatelike: async (id,like)=> {
+        try {
+            var nowdate=getdatenow();
+            const sql = `UPDATE videos SET videos.like=${like} where id=${id}`;
             const rows = await db.load(sql);
             return rows;
         } catch (error) {
