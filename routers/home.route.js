@@ -44,10 +44,16 @@ router.get("/getallvideoalltoday", async (req, res) => {
     res.send(rows.reverse());
 });
 router.get("/getvideothanhnien", async (req, res) => {
-  res.send(await mvideo.getvideoThanhNien());
+  var rows=await mvideo.getvideoThanhNien();
+  res.send(rows.reverse());
 });
 router.get("/getvideotuoitre", async (req, res) => {
-  res.send(await mvideo.getvideoTuoiTre());
+  var rows=await mvideo.getvideoTuoiTre();
+  res.send(rows.reverse());
+});
+router.get("/getnewlastest", async (req, res) => {
+  var rows=await mvideo.getvideoNewlastaste();
+  res.send(rows.reverse());
 });
 router.post("/updatelike",jsonParser, async (req, res) => {
   var id=req.body.id;
