@@ -75,6 +75,16 @@ module.exports = {
             console.log("Error Model: Product: all Pro Id", error);
         }
     },
+    updateview: async (id,view)=> {
+        try {
+            var nowdate=getdatenow();
+            const sql = `UPDATE videos SET videos.views=${view} where id=${id}`;
+            const rows = await db.load(sql);
+            return rows;
+        } catch (error) {
+            console.log("Error Model: Product: all Pro Id", error);
+        }
+    },
 
 };
 function getdatenow() {
