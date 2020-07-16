@@ -85,6 +85,16 @@ module.exports = {
             console.log("Error Model: Product: all Pro Id", error);
         }
     },
+    getvideoAdmin: async ()=> {
+        try {
+            var nowdate=getdatenow();
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport > '${nowdate-3}')`;
+            const rows = await db.load(sql);
+            return rows;
+        } catch (error) {
+            console.log("Error Model: Product: all Pro Id", error);
+        }
+    },
 
 };
 function getdatenow() {

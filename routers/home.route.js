@@ -69,4 +69,8 @@ router.post("/updateview",jsonParser, async (req, res) => {
 var upd=await mvideo.updateview(id,view);
   console.log(req.body);
 });
+router.get("/getinfodowntoday", async (req, res) => {
+  var rows=await mvideo.getvideoAdmin();
+  res.send(rows.reverse());
+});
 module.exports = router;
