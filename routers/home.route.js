@@ -59,6 +59,7 @@ router.post("/updatelike",jsonParser, async (req, res) => {
   var id=req.body.id;
   var like=req.body.like;
 var upd=await mvideo.updatelike(id,like);
+console.log(req.body);
 res.send('updathanhcong');
 });
 router.post("/updateview",jsonParser, async (req, res) => {
