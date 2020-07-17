@@ -28,7 +28,7 @@ module.exports = {
     getdetailByDateNow: async ()=> {
         try {
             var nowdate=getdatenow();
-            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport > '${nowdate-10}') and((videosname like N'%ona%')or(videosname like N'%p=ovid %') )`;
+            const sql = `SELECT * FROM ${tbName} WHERE (dateexport = '${nowdate}' or dateexport > '${nowdate-10}') and((videosname like N'%ona%')or(videosname like N'%ovid %')or(videosname like N'%OVID %')or(videosname like N'%ONA %') )`;
             const rows = await db.load(sql);
             return rows;
         } catch (error) {
